@@ -38,9 +38,28 @@ window.addEventListener('load', function () {
             this.width = this.canvas.width;
             this.height = this.canvas.height;
             this.palyer = new Player (this);
-        }
+            this.mouse = {
+               x: this.width * 0.5,
+               y: this.height * 0.5,
+               pressed: false
 
-    }
+            }
+
+//event listeners
+
+
+    canvas.addEventListener ('mousedown', (e) =>{
+        this.mouse.x = e.offesetX;
+        this.mouse.y = e.offsetY;
+    
+
+    });
+}
+
+render(context){
+this.player.draw(context);
+}
+}
 
     const game = new Game(canvas);
     game.render(ctx);
@@ -50,4 +69,6 @@ window.addEventListener('load', function () {
     function animate() {
 
     }
+
+   
 })
